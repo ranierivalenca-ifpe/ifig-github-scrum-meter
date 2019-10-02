@@ -58,14 +58,6 @@
           </div>
         </div>
 
-        <fieldset>
-          <legend>Coefficients</legend>
-          aip: <input type="number" step="0.1" v-model="coefs.aip">
-          naip: <input type="number" step="0.1" v-model="coefs.naip">
-          cai: <input type="number" step="0.1" v-model="coefs.cai">
-          ncai: <input type="number" step="0.1" v-model="coefs.ncai">
-        </fieldset>
-
         <div id="data-table">
           <div class="head">
             <div class="row1">
@@ -134,13 +126,6 @@
     data() {
       return {
         sprint: null,
-
-        coefs: {
-          aip: 0.5,
-          naip: 0.2,
-          cai: 0.5,
-          ncai: -0.2
-        },
 
         loaded: false,
         loading: false,
