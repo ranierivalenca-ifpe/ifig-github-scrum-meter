@@ -1,0 +1,28 @@
+#loader {
+    .progress {
+        display: block;
+        width: 100%;
+        height: 30px;
+        background: $gray;
+        margin: .5em 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+
+        .bar {
+            background: $light-green;
+            display: block;
+            height: 100%;
+            background-image: linear-gradient(
+                -45deg,
+                transparent 33%,
+                rgba(0, 0, 0, .1) 33%,
+                rgba(0,0, 0, .1) 66%,
+                transparent 66%
+            ),
+            linear-gradient(
+                top,
+                rgba(255, 255, 255, .25),
+                rgba(0, 0, 0, .25)),
+            linear-gradient(left, #09c, #f44);
+        }
+    }
+}

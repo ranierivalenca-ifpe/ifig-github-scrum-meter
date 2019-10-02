@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="brigadeiro">
+        <h1>Doces</h1>
+        <form v-on:submit.prevent="adicionar">
+            <input type="text" v-model="nome">
+            <input type="submit">
+        </form>
+        <ul>
+            <li v-on:click="log" v-for="doce in doces">{{ doce }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#brigadeiro',
+            data: {
+                doces: [],
+                nome: ''
+            },
+            methods: {
+                adicionar: function() {
+                    this.doces.push(this.nome);
+                    this.nome = '';
+                },
+                log: function(a) {
+                    console.log(a);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

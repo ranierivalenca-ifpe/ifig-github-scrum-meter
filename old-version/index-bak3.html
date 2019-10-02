@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="vue.js"></script>
+  <script src="jquery-3.4.1.js"></script>
+  <script src="lz-string.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="projects">
+      <ul>
+        <li v-for="proj in projects"
+          :class="(project == proj) ? 'active' : false">
+          <span class="main" v-on:click.prevent="setProject(proj)">
+            {{proj.name}}
+          </span>
+          <span class="renew" v-on:click.prevent="setProject(proj, true)">
+            Renew
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div id="loader" v-if="loading">
+      Total Requests: <span>{{requests.length}}</span>
+      <progress :value="completedRequests.length" :max="requests.length"></progress>
+    </div>
+
+    <div id="project-data" v-if="loaded">
+      <h1>{{ project.name }}</h1>
+
+      <div id="sprints">
+        <ul>
+          <li v-for="sprint in project.sprints">
+            <a href="#" v-on:click="setSprint(sprint)">{{ sprint.title }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="sprint-data">
+        <h2>{{ getSprint().title }}</h2>
+        <div class="data">
+          Interval:
+          <span>
+            {{ new Date(getSprint().from).toLocaleString() }} ~ {{new Date(getSprint().to).toLocaleString() }}
+          </span>
+        </div>
+        <div class="data">
+          Total Issues:
+          <span>
+            {{ Object.values(getSprint().snapshot.issues).length }}
+          </span>
+        </div>
+        <div class="data">
+          Total Commits:
+          <span>
+            {{ Object.values(getSprint().snapshot.user_commits).flat().length }}
+          </span>
+        </div>
+        <div class="data">
+          Total Comments:
+          <span>
+            {{ Object.values(getSprint().snapshot.user_comments).flat().length }}
+          </span>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Coefficients</legend>
+        aip: <input type="number" step="0.1" v-model="coefs.aip">
+        naip: <input type="number" step="0.1" v-model="coefs.naip">
+        cai: <input type="number" step="0.1" v-model="coefs.cai">
+        ncai: <input type="number" step="0.1" v-model="coefs.ncai">
+      </fieldset>
+
+      <table id="main-data">
+        <thead>
+          <!-- <tr>
+            <th rowspan="2" class="div">Committer</th>
+            <th colspan="2" class="div">Total</th>
+            <th colspan="2" class="div">Assigned Issues</th>
+            <th colspan="2" class="div">Assigned Issues</th>
+            <th colspan="2" class="div">Unassigned Issues</th>
+            <th rowspan="2" _title="Assigned Issues Participation">AIP</th>
+          </tr>
+          <tr>
+            <th>Commits</th>
+            <th class="div">Comments</th>
+
+            <th>Open</th>
+            <th class="div">Closed</th>
+
+            <th>Commits</th>
+            <th class="div">Comments</th>
+
+            <th>Commits</th>
+            <th class="div">Comments</th>
+          </tr> -->
+          <th class="div">Committer</th>
+
+          <th _title="Open Issues Assigned">Open</th>
+          <th class="div" _title="Closed Issues Assigned">Closed</th>
+
+          <th _title="Assigned issues with commits">As. Commits</th>
+          <th class="div" _title="Assigned issues with comments">As. Comments</th>
+
+          <th _title="Assigned issues with commits">Un. Commits</th>
+          <th class="div" _title="Assigned issues with comments">Un. Comments</th>
+
+          <th>AIP</th>
+          <th class="div">NAIP</th>
+
+          <th>CAI</th>
+          <th class="div">NCAI</th>
+
+          <th class="div">AIF</th>
+
+          <th class="div">WD</th>
+
+          <th class="em">Part.</th>
+          <th class="em">Compr.</th>
+
+        </thead>
+        <tbody :key="sprint.id">
+          <tr v-for="user in users" :class="['ranierivalenca', 'lilialnas'].indexOf(user.login) != -1 ? 'teacher' : false">
+            <td class="div">{{ user.login }}</td>
+
+            <!-- <td>{{ getCommits(user.id).length }}</td>
+            <td class="div">{{ getComments(user.id).length }}</td> -->
+
+            <td :_title="getOpenIssues(user.id).length ? getOpenIssues(user.id).map(i => i.number).join(' - ') : false">
+              {{ getOpenIssues(user.id).length }}
+            </td>
+            <td class="div" :_title="getClosedIssues(user.id).length ? getClosedIssues(user.id).map(i => i.number).join(' - ') : false">
+              {{ getClosedIssues(user.id).length }}
+            </td>
+
+            <td :_title="getAssignedWithCommits(user.id).length ? getAssignedWithCommits(user.id).map(i => i.number).join(' - ') : false">
+              {{ getAssignedWithCommits(user.id).length }} ({{getCommits(user.id).length}})
+            </td>
+            <td class="div" :_title="getAssignedWithComments(user.id).length ? getAssignedWithComments(user.id).map(i => i.number).join(' - ') : false">
+              {{ getAssignedWithComments(user.id).length }} ({{getComments(user.id).length}})
+            </td>
+
+            <td :_title="getUnassignedWithCommits(user.id).length ? getUnassignedWithCommits(user.id).map(i => i.number).join(' - ') : false">
+              {{ getUnassignedWithCommits(user.id).length }}
+            </td>
+            <td class="div" :_title="getUnassignedWithComments(user.id).length ? getUnassignedWithComments(user.id).map(i => i.number).join(' - ') : false">
+              {{ getUnassignedWithComments(user.id).length }}
+            </td>
+
+            <td>{{ parameters(user.id).aip }}</td>
+            <td class="div">{{ parameters(user.id).naip }}</td>
+
+            <td>{{ parameters(user.id).cai }}</td>
+            <td class="div">{{ parameters(user.id).ncai }}</td>
+
+            <td class="div">{{ parameters(user.id).aif }}</td>
+
+            <td class="div">{{ parameters(user.id).wd }}</td>
+
+            <td class="em">
+              {{ parameters(user.id).participation }}
+            </td>
+            <td class="em">
+              {{ parameters(user.id).compromise }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- ul>
+      <li v-for="comment in comments">
+        <pre>{{comment}}</pre>
+      </li>
+    </ul> -->
+  </div>
+  <script src="functions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

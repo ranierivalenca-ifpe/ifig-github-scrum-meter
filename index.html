@@ -1,0 +1,36 @@
+<!-- https://stackoverflow.com/questions/43334796/pass-data-from-child-to-parent-in-vuejs-is-it-so-complicated -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="vue.js"></script>
+  <script src="http-vue-loader.js"></script>
+  <script src="jquery-3.4.1.js"></script>
+  <script src="js-classes/Project.js"></script>
+  <script src="js-classes/Sprint.js"></script>
+  <script src="js-classes/Issue.js"></script>
+  <script src="js-classes/Commit.js"></script>
+  <script src="js-classes/User.js"></script>
+  <!-- <script src="lz-string.js"></script> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <div id="projects">
+      <project v-for="proj in projects"
+        :key="proj.name"
+        v-bind:project="proj"
+        v-bind:active="project == proj"
+        v-on:select="setProject">
+      </project>
+    </div>
+
+    <project-data v-bind:project="project"></project-data>
+
+  </div>
+  <script src="functions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

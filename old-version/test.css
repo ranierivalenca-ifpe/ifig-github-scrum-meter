@@ -1,0 +1,12 @@
+#main-data td span {
+  display: block;
+  font-weight: bold;
+}
+#main-data .commits {
+  color: #e61a1a;
+}
+#main-data .commits :before {
+  content: attr(commits);
+}
+
+/*# sourceMappingURL=test.css.map */

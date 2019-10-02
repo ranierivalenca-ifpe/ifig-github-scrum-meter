@@ -1,0 +1,32 @@
+#projects {
+    width: 90vw;
+    margin: .5em auto;
+    ul {
+        display: flex;
+        li {
+            list-style: none;
+            color: $lighter;
+            background: $dark;
+            margin: 0 .5em;
+            flex: 1;
+            text-align: center;
+
+            span {
+                padding: 0.8em 0;
+                width: 100%;
+                display: block;
+                &.rennew {
+                    border-top: 1px solid $light;
+                    padding: .2em 0;
+                }
+                &:hover {
+                    cursor: pointer;
+                    background: $dark-gray;
+                }
+            }
+            &.active .main {
+                background: $dark-green;
+            }
+        }
+    }
+}
