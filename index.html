@@ -25,7 +25,7 @@
       <div v-for="project in projects"
         class="project"
         :class="project == activeProject ? 'active' : false"
-        v-on:click.prevent="activeProject = project">
+        v-on:click.prevent="toggleActiveProject(project)">
         {{project.name}}
       </div>
 

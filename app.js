@@ -13,7 +13,13 @@ let app = new Vue({
     // watcher:
   },
   methods: {
-
+    toggleActiveProject: function(project) {
+      if (this.activeProject == project) {
+        this.activeProject = null;
+        return;
+      }
+      this.activeProject = project;
+    }
   },
 
 
