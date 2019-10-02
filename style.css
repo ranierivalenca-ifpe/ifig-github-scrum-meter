@@ -10,11 +10,11 @@
   font-family: sans-serif;
   color: #darker;
 }
-#app #projects {
+#app #projects-list {
   margin: 0.5em auto;
   display: flex;
 }
-#app #projects .project {
+#app #projects-list .project {
   margin: 0 0.5em;
   flex: 1;
   text-align: center;
@@ -22,17 +22,17 @@
   background: #1a1a1a;
   padding: 0.8em 0;
 }
-#app #projects .project:hover {
+#app #projects-list .project:hover {
   cursor: pointer;
   background: #4d4d4d;
 }
-#app #projects .project.active {
+#app #projects-list .project.active {
   background: #0f8a0f;
 }
-#app #projects .project:first-child {
+#app #projects-list .project:first-child {
   margin-left: 0;
 }
-#app #projects .project:last-child {
+#app #projects-list .project:last-child {
   margin-right: 0;
 }
 #app #loader .progress {
