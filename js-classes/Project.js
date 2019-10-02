@@ -133,4 +133,8 @@ class Project {
   lastSprint() {
     return this.sprints[this.sprints.length - 1];
   }
+
+  isLoaded() {
+    return this.has_loaded;
+  }
 }

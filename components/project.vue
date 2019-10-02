@@ -12,7 +12,7 @@
 
     </div>
 
-    <div v-if="project && project.has_loaded">
+    <div v-if="project && project.isLoaded()">
       <span class="renew" v-on:click.prevent="project.loadData(true)">
         R
       </span>
