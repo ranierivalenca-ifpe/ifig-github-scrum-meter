@@ -60,7 +60,9 @@
     watch: {
       project: function(newVal, oldVal) {
         this.sprint = null;
+        if (!this.project) return;
         this.project.loadData().then(() => {
+          if (!this.project) return;
           this.sprint = this.project.lastSprint();
         });
       }
