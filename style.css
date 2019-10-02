@@ -52,128 +52,6 @@
 #app #project {
   position: relative;
 }
-#app #project #data-table {
-  margin-top: 0.5em;
-  width: 100%;
-}
-#app #project #data-table .head, #app #project #data-table .body, #app #project #data-table .total {
-  border-bottom: 2px solid #cccccc;
-}
-#app #project #data-table .head .row, #app #project #data-table .head .row1, #app #project #data-table .head .row2, #app #project #data-table .body .row, #app #project #data-table .body .row1, #app #project #data-table .body .row2, #app #project #data-table .total .row, #app #project #data-table .total .row1, #app #project #data-table .total .row2 {
-  display: grid;
-  grid-template-columns: 3fr 1.3fr 1.5fr repeat(2, 1.2fr) 1.6fr 1.8fr 1.8fr 2fr repeat(6, 1fr);
-  grid-column-gap: 0em;
-  width: 100%;
-}
-#app #project #data-table .head .row .data, #app #project #data-table .head .row1 .data, #app #project #data-table .head .row2 .data, #app #project #data-table .body .row .data, #app #project #data-table .body .row1 .data, #app #project #data-table .body .row2 .data, #app #project #data-table .total .row .data, #app #project #data-table .total .row1 .data, #app #project #data-table .total .row2 .data {
-  display: block;
-  padding: 1em 0.5em;
-  position: relative;
-  cursor: default;
-  word-break: break-word;
-}
-#app #project #data-table .head .row .data:first-child, #app #project #data-table .head .row1 .data:first-child, #app #project #data-table .head .row2 .data:first-child, #app #project #data-table .body .row .data:first-child, #app #project #data-table .body .row1 .data:first-child, #app #project #data-table .body .row2 .data:first-child, #app #project #data-table .total .row .data:first-child, #app #project #data-table .total .row1 .data:first-child, #app #project #data-table .total .row2 .data:first-child {
-  padding-left: 0.1em;
-}
-#app #project #data-table .head .row .data:last-child, #app #project #data-table .head .row1 .data:last-child, #app #project #data-table .head .row2 .data:last-child, #app #project #data-table .body .row .data:last-child, #app #project #data-table .body .row1 .data:last-child, #app #project #data-table .body .row2 .data:last-child, #app #project #data-table .total .row .data:last-child, #app #project #data-table .total .row1 .data:last-child, #app #project #data-table .total .row2 .data:last-child {
-  padding-right: 0.1em;
-}
-#app #project #data-table .head .row.teacher, #app #project #data-table .head .row1.teacher, #app #project #data-table .head .row2.teacher, #app #project #data-table .body .row.teacher, #app #project #data-table .body .row1.teacher, #app #project #data-table .body .row2.teacher, #app #project #data-table .total .row.teacher, #app #project #data-table .total .row1.teacher, #app #project #data-table .total .row2.teacher {
-  background: #edfdfd;
-}
-#app #project #data-table .head .row.teacher:hover, #app #project #data-table .head .row1.teacher:hover, #app #project #data-table .head .row2.teacher:hover, #app #project #data-table .body .row.teacher:hover, #app #project #data-table .body .row1.teacher:hover, #app #project #data-table .body .row2.teacher:hover, #app #project #data-table .total .row.teacher:hover, #app #project #data-table .total .row1.teacher:hover, #app #project #data-table .total .row2.teacher:hover {
-  background: #baf7f7;
-}
-#app #project #data-table .head {
-  background: #e6e6e6;
-}
-#app #project #data-table .head .row1 .data, #app #project #data-table .head .row2 .data {
-  padding: 0.5em 0.3em;
-}
-#app #project #data-table .head .row1 {
-  grid-template-columns: 3fr 2.8fr 5.8fr 3.8fr 6fr;
-}
-#app #project #data-table .head .row1 .data {
-  font-weight: bold;
-  padding-bottom: 0.1em;
-  border: 1px solid #e6e6e6;
-  border-bottom: 0;
-  border-right: 0;
-}
-#app #project #data-table .head .row1 .data:first-child {
-  border-left: 0;
-}
-#app #project #data-table .head .row2 .data {
-  padding-top: 0.1em;
-  border: 0px solid #e6e6e6;
-}
-#app #project #data-table .head .row2 .data.bl {
-  border-left-width: 1px;
-}
-#app #project #data-table .body .row {
-  border-bottom: 1px solid #e6e6e6;
-}
-#app #project #data-table .body .row .data {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-#app #project #data-table .body .row:hover {
-  background: whitesmoke;
-}
-#app #project #data-table .total {
-  border-bottom: 0;
-}
-#app #project #data-table .total .row .data {
-  padding-top: 0.5em;
-}
-#app #project #data-table .commits {
-  color: #eb4747;
-}
-#app #project #data-table .commits[commits]:before {
-  content: "" " " attr(commits) " " "commits";
-}
-#app #project #data-table .commits[commits="0"]:before, #app #project #data-table .commits[commits="1"]:before {
-  content: "" " " attr(commits) " " "commit";
-}
-#app #project #data-table .comments {
-  color: #4747eb;
-}
-#app #project #data-table .comments[comments]:before {
-  content: "" " " attr(comments) " " "comments";
-}
-#app #project #data-table .comments[comments="0"]:before, #app #project #data-table .comments[comments="1"]:before {
-  content: "" " " attr(comments) " " "comment";
-}
-#app #project #data-table .open {
-  color: #8a0f0f;
-}
-#app #project #data-table .open[issues]:before {
-  content: "" " " attr(issues) " " "open issues";
-}
-#app #project #data-table .open[issues="0"]:before, #app #project #data-table .open[issues="1"]:before {
-  content: "" " " attr(issues) " " "open issue";
-}
-#app #project #data-table .closed {
-  color: #0f0f8a;
-}
-#app #project #data-table .closed[issues]:before {
-  content: "" " " attr(issues) " " "closed issues";
-}
-#app #project #data-table .closed[issues="0"]:before, #app #project #data-table .closed[issues="1"]:before {
-  content: "" " " attr(issues) " " "closed issue";
-}
-#app #project #data-table .with-commits[commits]:before {
-  content: "" " " attr(commits) " " "issues w commit(s)";
-}
-#app #project #data-table .with-commits[commits="0"]:before, #app #project #data-table .with-commits[commits="1"]:before {
-  content: "" " " attr(commits) " " "issue w commit(s)";
-}
-#app #project #data-table .with-comments[comments]:before {
-  content: "" " " attr(comments) " " "issues w comment(s)";
-}
-#app #project #data-table .with-comments[comments="0"]:before, #app #project #data-table .with-comments[comments="1"]:before {
-  content: "" " " attr(comments) " " "issue w comment(s)";
-}
 #app #project #sprints-list {
   display: flex;
 }
@@ -202,9 +80,159 @@
 #app #project #sprints-list .sprint:last-child {
   margin-right: 0;
 }
-#app #project #sprint-data h2 {
+#app #project #sprint #data-table {
+  margin-top: 0.5em;
+  width: 100%;
+}
+#app #project #sprint #data-table .head, #app #project #sprint #data-table .body, #app #project #sprint #data-table .total {
+  border-bottom: 2px solid #cccccc;
+}
+#app #project #sprint #data-table .head .row, #app #project #sprint #data-table .head .row1, #app #project #sprint #data-table .head .row2, #app #project #sprint #data-table .body .row, #app #project #sprint #data-table .body .row1, #app #project #sprint #data-table .body .row2, #app #project #sprint #data-table .total .row, #app #project #sprint #data-table .total .row1, #app #project #sprint #data-table .total .row2 {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr 1.5fr repeat(2, 1.2fr) 1.6fr 1.8fr 1.8fr 2fr repeat(6, 1fr);
+  grid-column-gap: 0em;
+  width: 100%;
+}
+#app #project #sprint #data-table .head .row .data, #app #project #sprint #data-table .head .row1 .data, #app #project #sprint #data-table .head .row2 .data, #app #project #sprint #data-table .body .row .data, #app #project #sprint #data-table .body .row1 .data, #app #project #sprint #data-table .body .row2 .data, #app #project #sprint #data-table .total .row .data, #app #project #sprint #data-table .total .row1 .data, #app #project #sprint #data-table .total .row2 .data {
+  display: block;
+  padding: 1em 0.5em;
+  position: relative;
+  cursor: default;
+  word-break: break-word;
+}
+#app #project #sprint #data-table .head .row .data:first-child, #app #project #sprint #data-table .head .row1 .data:first-child, #app #project #sprint #data-table .head .row2 .data:first-child, #app #project #sprint #data-table .body .row .data:first-child, #app #project #sprint #data-table .body .row1 .data:first-child, #app #project #sprint #data-table .body .row2 .data:first-child, #app #project #sprint #data-table .total .row .data:first-child, #app #project #sprint #data-table .total .row1 .data:first-child, #app #project #sprint #data-table .total .row2 .data:first-child {
+  padding-left: 0.1em;
+}
+#app #project #sprint #data-table .head .row .data:last-child, #app #project #sprint #data-table .head .row1 .data:last-child, #app #project #sprint #data-table .head .row2 .data:last-child, #app #project #sprint #data-table .body .row .data:last-child, #app #project #sprint #data-table .body .row1 .data:last-child, #app #project #sprint #data-table .body .row2 .data:last-child, #app #project #sprint #data-table .total .row .data:last-child, #app #project #sprint #data-table .total .row1 .data:last-child, #app #project #sprint #data-table .total .row2 .data:last-child {
+  padding-right: 0.1em;
+}
+#app #project #sprint #data-table .head .row.teacher, #app #project #sprint #data-table .head .row1.teacher, #app #project #sprint #data-table .head .row2.teacher, #app #project #sprint #data-table .body .row.teacher, #app #project #sprint #data-table .body .row1.teacher, #app #project #sprint #data-table .body .row2.teacher, #app #project #sprint #data-table .total .row.teacher, #app #project #sprint #data-table .total .row1.teacher, #app #project #sprint #data-table .total .row2.teacher {
+  background: #edfdfd;
+}
+#app #project #sprint #data-table .head .row.teacher:hover, #app #project #sprint #data-table .head .row1.teacher:hover, #app #project #sprint #data-table .head .row2.teacher:hover, #app #project #sprint #data-table .body .row.teacher:hover, #app #project #sprint #data-table .body .row1.teacher:hover, #app #project #sprint #data-table .body .row2.teacher:hover, #app #project #sprint #data-table .total .row.teacher:hover, #app #project #sprint #data-table .total .row1.teacher:hover, #app #project #sprint #data-table .total .row2.teacher:hover {
+  background: #baf7f7;
+}
+#app #project #sprint #data-table .head {
+  background: #e6e6e6;
+}
+#app #project #sprint #data-table .head .row1 .data, #app #project #sprint #data-table .head .row2 .data {
+  padding: 0.5em 0.3em;
+}
+#app #project #sprint #data-table .head .row1 {
+  grid-template-columns: 3fr 2.8fr 5.8fr 3.8fr 6fr;
+}
+#app #project #sprint #data-table .head .row1 .data {
+  font-weight: bold;
+  padding-bottom: 0.1em;
+  border: 1px solid #e6e6e6;
+  border-bottom: 0;
+  border-right: 0;
+}
+#app #project #sprint #data-table .head .row1 .data:first-child {
+  border-left: 0;
+}
+#app #project #sprint #data-table .head .row2 .data {
+  padding-top: 0.1em;
+  border: 0px solid #e6e6e6;
+}
+#app #project #sprint #data-table .head .row2 .data.bl {
+  border-left-width: 1px;
+}
+#app #project #sprint #data-table .body .row {
+  border-bottom: 1px solid #e6e6e6;
+}
+#app #project #sprint #data-table .body .row .data {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+#app #project #sprint #data-table .body .row:hover {
+  background: whitesmoke;
+}
+#app #project #sprint #data-table .total {
+  border-bottom: 0;
+}
+#app #project #sprint #data-table .total .row .data {
+  padding-top: 0.5em;
+}
+#app #project #sprint #data-table .commits {
+  color: #eb4747;
+}
+#app #project #sprint #data-table .commits[commits]:before {
+  content: "" " " attr(commits) " " "commits";
+}
+#app #project #sprint #data-table .commits[commits="0"]:before, #app #project #sprint #data-table .commits[commits="1"]:before {
+  content: "" " " attr(commits) " " "commit";
+}
+#app #project #sprint #data-table .comments {
+  color: #4747eb;
+}
+#app #project #sprint #data-table .comments[comments]:before {
+  content: "" " " attr(comments) " " "comments";
+}
+#app #project #sprint #data-table .comments[comments="0"]:before, #app #project #sprint #data-table .comments[comments="1"]:before {
+  content: "" " " attr(comments) " " "comment";
+}
+#app #project #sprint #data-table .open {
+  color: #8a0f0f;
+}
+#app #project #sprint #data-table .open[issues]:before {
+  content: "" " " attr(issues) " " "open issues";
+}
+#app #project #sprint #data-table .open[issues="0"]:before, #app #project #sprint #data-table .open[issues="1"]:before {
+  content: "" " " attr(issues) " " "open issue";
+}
+#app #project #sprint #data-table .closed {
+  color: #0f0f8a;
+}
+#app #project #sprint #data-table .closed[issues]:before {
+  content: "" " " attr(issues) " " "closed issues";
+}
+#app #project #sprint #data-table .closed[issues="0"]:before, #app #project #sprint #data-table .closed[issues="1"]:before {
+  content: "" " " attr(issues) " " "closed issue";
+}
+#app #project #sprint #data-table .with-commits[commits]:before {
+  content: "" " " attr(commits) " " "issues w commit(s)";
+}
+#app #project #sprint #data-table .with-commits[commits="0"]:before, #app #project #sprint #data-table .with-commits[commits="1"]:before {
+  content: "" " " attr(commits) " " "issue w commit(s)";
+}
+#app #project #sprint #data-table .with-comments[comments]:before {
+  content: "" " " attr(comments) " " "issues w comment(s)";
+}
+#app #project #sprint #data-table .with-comments[comments="0"]:before, #app #project #sprint #data-table .with-comments[comments="1"]:before {
+  content: "" " " attr(comments) " " "issue w comment(s)";
+}
+#app #project #sprint .sprint-data {
+  display: flex;
+  flex-flow: row wrap;
+}
+#app #project #sprint .sprint-data .data {
+  background: whitesmoke;
+  flex-grow: 2;
+  margin: 0.5em;
+  padding: 1em;
   text-align: center;
-  margin: 0.5em auto;
+  cursor: default;
+}
+#app #project #sprint .sprint-data .data span {
+  margin-top: 0.2em;
+  font-weight: bold;
+  display: block;
+}
+#app #project #sprint .sprint-data .data span .details span {
+  display: inline;
+}
+#app #project #sprint .sprint-data .data span .details span.open {
+  color: #8a0f0f;
+}
+#app #project #sprint .sprint-data .data span .details span.closed {
+  color: #0f0f8a;
+}
+#app #project #sprint .sprint-data .data span.commits {
+  color: #eb4747;
+}
+#app #project #sprint .sprint-data .data span.comments {
+  color: #4747eb;
 }
 #app #project h1 {
   text-align: center;
@@ -226,36 +254,6 @@
 }
 #app #project .renew:hover {
   background: #baf7ba;
-}
-#app #project .sprint-data {
-  display: flex;
-  flex-flow: row wrap;
-}
-#app #project .sprint-data .data {
-  background: whitesmoke;
-  flex-grow: 2;
-  margin: 0.5em;
-  padding: 1em;
-  text-align: center;
-}
-#app #project .sprint-data .data span {
-  font-weight: bold;
-  display: block;
-}
-#app #project .sprint-data .data span .details span {
-  display: inline;
-}
-#app #project .sprint-data .data span .details span.open {
-  color: #8a0f0f;
-}
-#app #project .sprint-data .data span .details span.closed {
-  color: #0f0f8a;
-}
-#app #project .sprint-data .data span.commits {
-  color: #eb4747;
-}
-#app #project .sprint-data .data span.comments {
-  color: #4747eb;
 }
 #app [_title] {
   position: relative;

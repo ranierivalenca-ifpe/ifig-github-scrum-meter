@@ -1,7 +1,6 @@
 #project {
-    @import 'main-data';
     @import 'sprints-list';
-    @import 'sprint-data';
+    @import 'sprint';
 
     position: relative;
 
@@ -28,40 +27,5 @@
         }
     }
 
-    .project-summary {
 
-    }
-
-    .sprint-data {
-        display: flex;
-        flex-flow: row wrap;
-        .data {
-            background: $lighter;
-            flex-grow: 2;
-            margin: .5em;
-            padding: 1em;
-            text-align: center;
-
-            span {
-                font-weight: bold;
-                display: block;
-
-                .details {
-                    span {
-                        display: inline;
-
-                        &.open {
-                            color: $dark-red;
-                        }
-                        &.closed {
-                            color: $dark-blue;
-                        }
-                    }
-                }
-
-                &.commits { color: $red; }
-                &.comments { color: $blue; }
-            }
-        }
-    }
 }
