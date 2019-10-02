@@ -77,7 +77,7 @@
         return issues
           .map(i => parseInt(i.number))
           .sort((a, b) => a - b)
-          .join(", ");
+          .join(" ");
       },
     }
   }
