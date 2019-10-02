@@ -103,9 +103,6 @@
               <span class="data">AIF</span>
 
               <span class="data">WD</span>
-
-              <span class="data em">Part</span>
-              <span class="data em">Compr</span>
             </div>
           </div>
 

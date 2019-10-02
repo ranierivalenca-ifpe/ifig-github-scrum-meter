@@ -61,7 +61,7 @@
 }
 #app #project #data-table .head .row, #app #project #data-table .head .row1, #app #project #data-table .head .row2, #app #project #data-table .body .row, #app #project #data-table .body .row1, #app #project #data-table .body .row2, #app #project #data-table .total .row, #app #project #data-table .total .row1, #app #project #data-table .total .row2 {
   display: grid;
-  grid-template-columns: 3fr 1.3fr 1.5fr repeat(2, 1.2fr) 1.6fr 1.8fr 1.8fr 2fr repeat(6, 1fr) repeat(2, 1.2fr);
+  grid-template-columns: 3fr 1.3fr 1.5fr repeat(2, 1.2fr) 1.6fr 1.8fr 1.8fr 2fr repeat(6, 1fr);
   grid-column-gap: 0em;
   width: 100%;
 }
@@ -91,7 +91,7 @@
   padding: 0.5em 0.3em;
 }
 #app #project #data-table .head .row1 {
-  grid-template-columns: 3fr 2.8fr 5.8fr 3.8fr 8.4fr;
+  grid-template-columns: 3fr 2.8fr 5.8fr 3.8fr 6fr;
 }
 #app #project #data-table .head .row1 .data {
   font-weight: bold;

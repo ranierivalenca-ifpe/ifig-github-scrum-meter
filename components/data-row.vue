@@ -23,13 +23,6 @@
     <div class="data">{{ metrics.aif }}</div>
 
     <div class="data">{{ metrics.wd }}</div>
-
-    <!-- <div class="data em">
-      {{ metrics.participation }}
-    </div>
-    <div class="data em">
-      {{ metrics.compromise }}
-    </div> -->
   </div>
 </template>
 
