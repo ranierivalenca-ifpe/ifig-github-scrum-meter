@@ -8,19 +8,30 @@
     font-family: sans-serif;
     color: #darker;
 
-    [_title]:not([_title=""]):hover:after {
-        position: absolute;
-        /*top: .5em;*/
-        background: $dark;
-        color: $light;
-        padding: .5em;
-        // width: calc(100% - 1em);
-        width: 10em;
-        text-align: center;
-        left: -5em;
-        bottom: 2.5em;
-        word-break: break-word;
-        content: attr(_title);
-        z-index: 1;
+    [_title] {
+        position: relative;
+        &:not([_title=""]):hover {
+            text-shadow: 0 0 .2em $light, 0 0 .3em $dark;
+            &:after {
+                text-shadow: none;
+                font-weight: bold;
+                position: absolute;
+                /*top: .5em;*/
+                background: $dark;
+                color: $light;
+                padding: .5em;
+                // width: calc(100% - 1em);
+                width: 200%;
+                left: -100%;
+                text-align: center;
+                // left: -50%;
+                // bottom: 2.5em;
+                bottom: 130%;
+                word-break: break-word;
+                content: attr(_title);
+                z-index: 1;
+                word-spacing: .5em;
+            }
+        }
     }
 }

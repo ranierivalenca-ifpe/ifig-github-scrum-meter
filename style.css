@@ -257,19 +257,28 @@
 #app #project .sprint-data .data span.comments {
   color: #4747eb;
 }
+#app [_title] {
+  position: relative;
+}
+#app [_title]:not([_title=""]):hover {
+  text-shadow: 0 0 0.2em #e6e6e6, 0 0 0.3em #1a1a1a;
+}
 #app [_title]:not([_title=""]):hover:after {
+  text-shadow: none;
+  font-weight: bold;
   position: absolute;
   /*top: .5em;*/
   background: #1a1a1a;
   color: #e6e6e6;
   padding: 0.5em;
-  width: 10em;
+  width: 200%;
+  left: -100%;
   text-align: center;
-  left: -5em;
-  bottom: 2.5em;
+  bottom: 130%;
   word-break: break-word;
   content: attr(_title);
   z-index: 1;
+  word-spacing: 0.5em;
 }
 
 /*# sourceMappingURL=style.css.map */
