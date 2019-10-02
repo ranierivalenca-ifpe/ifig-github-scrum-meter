@@ -3,22 +3,16 @@
 let app = new Vue({
   el: '#app',
   components: {
-    project: window.httpVueLoader('/components/project.vue'),
     projectData: window.httpVueLoader('/components/project-data.vue'),
   },
   data: {
     projects: projects,
-    project: null,
+    activeProject: null,
   },
   watch: {
     // watcher:
   },
   methods: {
-    setProject: function(project, reload) {
-      reload = reload || false;
-      this.project = project;
-      // console.log('setting project...');
-    },
 
   },
 

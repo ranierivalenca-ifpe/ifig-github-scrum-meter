@@ -22,15 +22,16 @@
   <div id="app">
 
     <div id="projects">
-      <project v-for="proj in projects"
-        :key="proj.name"
-        v-bind:project="proj"
-        v-bind:active="project == proj"
-        v-on:select="setProject">
-      </project>
+      <div v-for="project in projects"
+        class="project"
+        :class="project == activeProject ? 'active' : false"
+        v-on:click.prevent="activeProject = project">
+        {{project.name}}
+      </div>
+
     </div>
 
-    <project-data v-bind:project="project"></project-data>
+    <project-data v-bind:project="activeProject"></project-data>
 
   </div>
   <script src="functions.js"></script>
