@@ -3,7 +3,7 @@
 let app = new Vue({
   el: '#app',
   components: {
-    projectData: window.httpVueLoader('/components/project-data.vue'),
+    project: window.httpVueLoader('/components/project.vue'),
   },
   data: {
     projects: projects,

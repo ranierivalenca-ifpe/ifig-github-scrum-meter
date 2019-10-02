@@ -1,5 +1,5 @@
 <template>
-  <div id="project-data">
+  <div id="project">
     <div id="loader" v-if="project && project.is_loading">
       Total Requests: <span>{{completedRequests.length}} / {{requests.length}}</span>
       <div class="progress">
