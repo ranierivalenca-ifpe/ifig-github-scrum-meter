@@ -104,13 +104,15 @@
             <data-row v-for="user in project.getUsers()"
               v-if="!['ranierivalenca', 'lilialnas'].includes(user.login)"
               v-bind:user="user"
-              v-bind:sprint="sprint">
+              v-bind:sprint="sprint"
+              :key="user.login">
             </data-row>
             <data-row v-for="user in project.getUsers()"
               v-if="['ranierivalenca', 'lilialnas'].includes(user.login)"
               v-bind:user="user"
               v-bind:sprint="sprint"
-              v-bind:extra-class="'teacher'">
+              v-bind:extra-class="'teacher'"
+              :key="user.login">
             </data-row>
         </div>
       </div>
