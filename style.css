@@ -174,32 +174,32 @@
 #app #project #data-table .with-comments[comments="0"]:before, #app #project #data-table .with-comments[comments="1"]:before {
   content: "" " " attr(comments) " " "issue w comment(s)";
 }
-#app #project #sprints {
+#app #project #sprints-list {
   display: flex;
 }
-#app #project #sprints .sprint {
+#app #project #sprints-list .sprint {
   list-style: none;
   margin: 0 0.5em;
   flex: 1;
   text-align: center;
 }
-#app #project #sprints .sprint span {
+#app #project #sprints-list .sprint span {
   cursor: pointer;
   padding: 0.5em;
   display: block;
   width: 100%;
   background: #999999;
 }
-#app #project #sprints .sprint span:hover {
+#app #project #sprints-list .sprint span:hover {
   background: #cccccc;
 }
-#app #project #sprints .sprint.active span {
+#app #project #sprints-list .sprint.active span {
   background: #baf7ba;
 }
-#app #project #sprints .sprint:first-child {
+#app #project #sprints-list .sprint:first-child {
   margin-left: 0;
 }
-#app #project #sprints .sprint:last-child {
+#app #project #sprints-list .sprint:last-child {
   margin-right: 0;
 }
 #app #project #sprint-data h2 {

@@ -17,12 +17,14 @@
         R
       </span>
       <h1>{{ project.name }}</h1>
-      <div id="sprints">
-        <sprint v-for="spr in project.sprints"
-          v-bind:sprint="spr"
-          v-bind:active="spr == sprint"
-          v-on:select="setSprint">
-        </sprint>
+      <div id="sprints-list">
+        <div class="sprint"
+          v-for="spr in project.sprints"
+          :class="spr == sprint ? 'active' : false">
+          <span v-on:click="sprint = spr">
+            {{ spr.title }}
+          </span>
+        </div>
       </div>
 
       <div v-if="sprint">
@@ -145,7 +147,7 @@
       project: function(newVal, oldVal) {
         this.sprint = null;
         this.project.loadData().then(() => {
-          this.setSprint(this.project.lastSprint());
+          this.sprint = this.project.lastSprint();
         });
       }
     },
@@ -159,9 +161,6 @@
 
     },
     methods: {
-      setSprint: function(sprint) {
-        this.sprint = sprint
-      },
       formatDate: function(date) {
         return new Date(date).toLocaleString();
       }
