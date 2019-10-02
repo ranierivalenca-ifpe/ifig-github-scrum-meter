@@ -37,11 +37,22 @@
           </div>
           <div class="data">
             Total Issues:
-            <span :_title="sprint.getIssuesNumbers()">
+            <span>
               {{ sprint.getIssues().length }}
               <div class="details">
-                <span class="open">{{ sprint.getOpenIssues().length }} open</span> /
-                <span class="closed">{{ sprint.getClosedIssues().length }} closed</span>
+                <span
+                  class="open"
+                  :_title="sprint.getOpenIssuesNumbers().join(' ')"
+                >
+                  {{ sprint.getOpenIssues().length }} open
+                </span>
+                and
+                <span
+                  class="closed"
+                  :_title="sprint.getClosedIssuesNumbers().join(' ')"
+                >
+                  {{ sprint.getClosedIssues().length }} closed
+                </span>
                 ({{Math.round(100 * sprint.getClosedIssues().length / sprint.getIssues().length)}}%)
               </div>
             </span>

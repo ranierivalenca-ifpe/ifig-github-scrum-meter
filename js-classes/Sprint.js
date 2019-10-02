@@ -53,8 +53,16 @@ class Sprint {
     });
   }
 
-  getIssuesNumbers() {
-    return Object.keys(this.issues);
+  getIssuesNumbers(issues) {
+    return issues.map(i => i.number);
+  }
+
+  getOpenIssuesNumbers() {
+    return this.getIssuesNumbers(this.getOpenIssues());
+  }
+
+  getClosedIssuesNumbers() {
+    return this.getIssuesNumbers(this.getClosedIssues());
   }
 
   getIssues() {
