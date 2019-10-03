@@ -4,6 +4,10 @@
     .sprint-data {
         display: flex;
         flex-flow: row wrap;
+
+        margin-left: -.5em;
+        margin-right: -.5em;
+
         .data {
             background: $lighter;
             flex-grow: 2;
