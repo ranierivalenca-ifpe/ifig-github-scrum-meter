@@ -1,0 +1,66 @@
+#metrics {
+    h2 {}
+    .projects-list {
+        padding-top: .5em;
+        padding-bottom: 1em;
+
+        margin-left: -.5em;
+        margin-right: -.5em;
+
+        .project {
+            padding: .5em;
+            background: $gray;
+            margin: .5em;
+            cursor: not-allowed;
+
+            &:hover {
+                background: $light-gray;
+            }
+
+            &:not(.loaded) {
+                &:after {
+                    content: 'x';
+                }
+            }
+
+            &.loaded {
+                cursor: pointer;
+                &:after {
+                    content: 'v';
+                }
+            }
+
+            &.selected {
+                background: $dark-orange;
+                color: $lighter;
+                &:hover {
+                    background: $orange;
+                    color: $dark;
+                }
+            }
+        }
+    }
+
+    .sprints-list {
+        padding-top: .5em;
+
+        margin-left: -.5em;
+        margin-right: -.5em;
+
+        span {
+            background: $light-gray;
+            padding: .3em .5em;
+            margin: .5em;
+            &:hover {
+                cursor: pointer;
+                background: $light;
+            }
+            &.selected {
+                background: $orange;
+                &:hover {
+                    background: $light-orange;
+                }
+            }
+        }
+    }
+}

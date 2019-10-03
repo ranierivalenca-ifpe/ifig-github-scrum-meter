@@ -2,11 +2,18 @@
     @import 'projects-list';
     @import 'loader';
     @import 'project';
+    @import 'metrics';
 
     width: 90vw;
     margin: auto;
     font-family: sans-serif;
-    color: #darker;
+    color: $dark;
+    padding-bottom: 2em;
+
+    hr {
+        margin: 1em 0;
+        border: 2px solid $dark-red;
+    }
 
     [_title] {
         position: relative;

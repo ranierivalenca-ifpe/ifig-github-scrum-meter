@@ -4,6 +4,7 @@ let app = new Vue({
   el: '#app',
   components: {
     project: window.httpVueLoader('/components/project.vue'),
+    metrics: window.httpVueLoader('/components/metrics.vue'),
   },
   data: {
     projects: projects,
