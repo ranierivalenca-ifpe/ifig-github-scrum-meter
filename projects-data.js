@@ -1,3 +1,6 @@
+let teachers = ['ranierivalenca', 'lilialnas'];
+let exceptUsers = ['PPhenriques'];
+
 let projects = [
   new Project(
     'ReqOn',

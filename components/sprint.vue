@@ -85,13 +85,13 @@
 
       <div class="body" :key="sprint.title">
         <data-row v-for="user in project.getUsers()"
-          v-if="!['ranierivalenca', 'lilialnas'].includes(user.login)"
+          v-if="![teachers, exceptUsers].flat().includes(user.login)"
           v-bind:user="user"
           v-bind:sprint="sprint"
           :key="user.login">
         </data-row>
         <data-row v-for="user in project.getUsers()"
-          v-if="['ranierivalenca', 'lilialnas'].includes(user.login)"
+          v-if="teachers.includes(user.login)"
           v-bind:user="user"
           v-bind:sprint="sprint"
           v-bind:extra-class="'teacher'"
@@ -115,6 +115,14 @@
       'project',
       'sprint'
     ],
+    computed: {
+      teachers: function() {
+        return teachers;
+      },
+      exceptUsers: function () {
+        return exceptUsers;
+      }
+    },
     methods: {
       formatDate: function(date) {
         return new Date(date).toLocaleString();
